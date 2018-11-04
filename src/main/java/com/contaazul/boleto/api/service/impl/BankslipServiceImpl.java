@@ -1,6 +1,11 @@
 package com.contaazul.boleto.api.service.impl;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -80,7 +85,7 @@ public class BankslipServiceImpl implements BankslipService  {
 			throw new RecordNotFound("Record not found!");
 		}
 		
-		//colocar o calculo dos juros aqui
+		bankslip.get().setFine(calculateFine(bankslip.get().getTotalInCents(),bankslip.get().getDueDate()));
 
 		return bankslip.get();
 	}
@@ -114,6 +119,36 @@ public class BankslipServiceImpl implements BankslipService  {
 
 		
 		return paid.get();
-	}		
+	}	
+	
+	
+	private BigDecimal calculateFine(BigDecimal v, Date dueDate) {
+		
+		ZoneId defaultZoneId = ZoneId.systemDefault();
+		Instant instant = dueDate.toInstant();
+		
+		LocalDate due = instant.atZone(defaultZoneId).toLocalDate();
+		LocalDate current = LocalDate.now();
+		
+		long diferencaEmDias = ChronoUnit.DAYS.between(due,current);
+		
+		BigDecimal fine = null;
+		
+		if(diferencaEmDias >  0 &&  diferencaEmDias <=10 ) {
+			//0.5%
+			fine = v.multiply(new BigDecimal(0.005));
+			fine = fine.setScale(0,BigDecimal.ROUND_HALF_UP);
+			
+		}else if(diferencaEmDias > 10 ) {
+			//1.0%
+			fine = v.multiply(new BigDecimal(0.01));
+			fine = fine.setScale(0,BigDecimal.ROUND_HALF_UP);
+		}else {
+			fine = new BigDecimal(0);
+		}
+
+		return fine;
+		
+	}
 
 }

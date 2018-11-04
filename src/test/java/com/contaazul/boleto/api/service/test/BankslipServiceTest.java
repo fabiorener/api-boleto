@@ -62,7 +62,7 @@ public class BankslipServiceTest {
 		Assert.assertTrue(list.size() > 0);
 		
 	}		
-	
+
 	@Test
 	public void getDetailsBankslipTest() throws ParseException,UnsupportedEncodingException {
 		
@@ -107,8 +107,6 @@ public class BankslipServiceTest {
 		Assert.assertEquals(bankslipCanceled.getStatus(), StatusEnum.CANCELED);
 		
 	}	
-
-	
 	
 	@Test
 	public void paymentBankslipTest() throws ParseException, UnsupportedEncodingException {
@@ -127,7 +125,5 @@ public class BankslipServiceTest {
 		Assert.assertEquals(bankslipUpdated.getStatus(), StatusEnum.PAID);
 		
 	}	
-
-	
 	
 }
