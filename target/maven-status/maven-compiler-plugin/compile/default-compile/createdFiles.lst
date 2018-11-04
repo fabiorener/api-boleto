@@ -1,0 +1,17 @@
+com\contaazul\boleto\api\repository\BankslipRepository.class
+com\contaazul\boleto\api\exception\FieldsValidationException.class
+com\contaazul\boleto\api\exception\RecordNotFound.class
+com\contaazul\boleto\api\resource\rest\BankslipRestController.class
+com\contaazul\boleto\api\to\ErrorDetails.class
+com\contaazul\boleto\api\to\ErrorDetails$Builder.class
+com\contaazul\boleto\api\exception\IdFormatInvalid.class
+com\contaazul\boleto\api\config\SwaggerConfig.class
+com\contaazul\boleto\api\config\BeanConfig.class
+com\contaazul\boleto\api\service\BankslipService.class
+com\contaazul\boleto\api\domain\Bankslip.class
+com\contaazul\boleto\api\config\ApiDocumentationConfig.class
+com\contaazul\boleto\api\enums\StatusEnum.class
+com\contaazul\boleto\api\resource\exception\RestExceptionHandler.class
+com\contaazul\boleto\api\exception\RecordNotUpdated.class
+com\contaazul\boleto\api\service\impl\BankslipServiceImpl.class
+com\contaazul\boleto\ApiBoletoApplication.class

@@ -1,0 +1,3 @@
+com\contaazul\boleto\ApiBoletoSpringBootApplicationTest.class
+com\contaazul\boleto\api\client\RestClientUtil.class
+com\contaazul\boleto\api\service\test\BankslipServiceTest.class
