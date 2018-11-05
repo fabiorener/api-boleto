@@ -19,12 +19,12 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.contaazul.boleto.api.enums.StatusEnum;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Table(name = "BANKSLIP")
 @ApiModel(description="All details about the Bankslip")
@@ -76,6 +76,7 @@ public class Bankslip implements Serializable {
 	private BigDecimal fine;	
 	
 
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	public UUID getId() {
 		return id;
 	}
@@ -86,6 +87,8 @@ public class Bankslip implements Serializable {
 	}
 
 
+	@JsonInclude(JsonInclude.Include.NON_NULL)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	public Date getDueDate() {
 		return dueDate;
 	}
@@ -96,6 +99,7 @@ public class Bankslip implements Serializable {
 	}
 
 
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	public BigDecimal getTotalInCents() {
 		return totalInCents;
 	}
@@ -106,6 +110,7 @@ public class Bankslip implements Serializable {
 	}
 
 
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	public String getCustomer() {
 		return customer;
 	}
@@ -116,6 +121,7 @@ public class Bankslip implements Serializable {
 	}
 
 
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	public StatusEnum getStatus() {
 		return status;
 	}
@@ -126,6 +132,7 @@ public class Bankslip implements Serializable {
 	}
 
 
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	public Date getPaymentDate() {
 		return paymentDate;
 	}
@@ -136,6 +143,7 @@ public class Bankslip implements Serializable {
 	}
 
 
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	public BigDecimal getFine() {
 		return fine;
 	}
