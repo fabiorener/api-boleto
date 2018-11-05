@@ -133,6 +133,7 @@ public class Bankslip implements Serializable {
 
 
 	@JsonInclude(JsonInclude.Include.NON_NULL)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	public Date getPaymentDate() {
 		return paymentDate;
 	}
