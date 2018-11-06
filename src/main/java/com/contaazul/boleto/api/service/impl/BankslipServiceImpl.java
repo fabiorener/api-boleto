@@ -137,11 +137,13 @@ public class BankslipServiceImpl implements BankslipService  {
 		if(diferencaEmDias >  0 &&  diferencaEmDias <=10 ) {
 			//0.5%
 			fine = v.multiply(new BigDecimal(0.005));
+			fine = fine.multiply(new BigDecimal(diferencaEmDias));
 			fine = fine.setScale(0,BigDecimal.ROUND_HALF_UP);
 			
 		}else if(diferencaEmDias > 10 ) {
 			//1.0%
 			fine = v.multiply(new BigDecimal(0.01));
+			fine = fine.multiply(new BigDecimal(diferencaEmDias));
 			fine = fine.setScale(0,BigDecimal.ROUND_HALF_UP);
 		}else {
 			fine = new BigDecimal(0);

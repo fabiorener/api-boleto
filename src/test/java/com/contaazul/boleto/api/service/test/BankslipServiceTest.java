@@ -67,8 +67,8 @@ public class BankslipServiceTest {
 	public void getDetailsBankslipTest() throws ParseException,UnsupportedEncodingException {
 		
 		Bankslip bankslip = new Bankslip();
-		bankslip.setDueDate(formatDate.parse("2018-01-01"));
-		bankslip.setTotalInCents(new BigDecimal(100000));
+		bankslip.setDueDate(formatDate.parse("2018-11-02"));
+		bankslip.setTotalInCents(new BigDecimal(99000));
 		bankslip.setCustomer("Trillian Company");
 		
 		Bankslip bankslipPersited =  service.createBankslip(bankslip);		
